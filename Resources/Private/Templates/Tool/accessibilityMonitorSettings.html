@@ -1,0 +1,70 @@
+<html xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Backend/Default" />
+
+<f:section name="content">
+	<style>
+  .get-strated-btn,
+            .get-strated-btn:hover {
+                background-color: #2855d3;
+                color: white;
+                padding: 5px 5px;
+                text-decoration: none;
+            }
+
+            .accscan-cancel-button {
+                text-decoration: none;
+                display: inline-block;
+                vertical-align: middle;
+                border: 2px solid #dd2755;
+                border-radius: 4px 4px 4px 4px;
+                background-color: #ea2362;
+                box-shadow: 0px 0px 2px 0px #333333;
+                color: #ffffff;
+                text-align: center;
+                box-sizing: border-box;
+                padding: 10px;
+            }
+
+            .accscan-cancel-button:hover {
+                border-color: #e21f4a;
+                background-color: white;
+                box-shadow: 0px 0px 2px 0px #333333;
+            }
+
+            .accscan-cancel-button:hover .mb-text {
+                color: #e82757;
+            }
+
+            #accscanmyIframe {
+                    height: calc(100vh - 220px);
+            }
+
+            #accscanexpiredfIframe {
+                height: calc(100vh - 20.5em);
+            }
+	</style>
+        <!-- <f:variable name="menuName"><f:translate key="cat_chat" extensionName="allinoneaccessibilitymonitor" /></f:variable> -->
+        <div style="padding: 20px; max-width: 1920px;">
+        <h1>All in One Accessibility Monitor</h1>
+        <hr>
+        <p style="width:100%;">Scan your website quickly for accessibility issues on complex websites with thousands of pages.It allows you to identify real-time digital accessibility issues in websites,applications, and documents.It offers continuous monitoring capabilities to track accessibility compliance over time.</p>
+        <!-- <f:variable name="menuName"><f:translate key="cat_chat" extensionName="allinoneaccessibilitymonitor" /></f:variable> -->
+						<f:if condition="{accscan_status} == 2">
+							<f:then>
+
+								<iframe src="{settinglink}" id="accscanexpiredfIframe" height="1100px;" width="100%" style="border: none;"></iframe>
+							</f:then>
+							<f:else>
+							<f:if condition="{accscan_status} > 0 && {accscan_status} <= 3">
+								<iframe id="accscanmyIframe" width="100%" style="max-width: 1920px; border: none;" height="1100px"  src="{settinglink}"></iframe>
+							</f:if>
+							<f:if condition="{accscan_status} == 0">
+								<iframe src="https://ada.skynettechnologies.us/trial-subscription?scanner=true&isframe=true&website={accscan_website_domain}&utm_source=typo3-extension&utm_medium=create-account" height="1100px;" width="100%" style="border: none;"></iframe>
+							</f:if>
+							</f:else>
+						</f:if>
+        </div>
+</f:section>
+
+</html>

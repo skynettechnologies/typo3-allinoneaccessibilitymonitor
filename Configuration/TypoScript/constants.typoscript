@@ -1,0 +1,20 @@
+plugin.tx_typo3alloneaccessibility_tool {
+  view {
+    # cat=plugin.tx_typo3alloneaccessibility_tool/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:alloneaccessibility/Resources/Private/Templates/
+    # cat=plugin.tx_typo3alloneaccessibility_tool/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:alloneaccessibility/Resources/Private/Partials/
+    # cat=plugin.tx_typo3alloneaccessibility_tool/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:talloneaccessibility/Resources/Private/Layouts/
+  }
+
+}
+
+module.tx_allinoneaccessibilitymonitor_Sntg_allinoneaccessibilitymonitortoolmodule {
+  view {
+    templateRootPath = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Templates/
+    partialRootPath = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Partials/
+    layoutRootPath = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Layouts/
+  }
+
+}

@@ -1,0 +1,16 @@
+<style>
+.style1 {
+    background-color: {aioapp.bgcolor} !important;
+    border: {aioapp.bordercolor} {aioapp.border}px solid !important;
+    color: {aioapp.textcolor} !important;
+    }
+    .style1:hover {
+    background-color: {aioapp.hbgcolor} !important;
+    border: {aioapp.hboredrcolor} {aioapp.border}px solid !important;
+    color: {aioapp.htextcolor} !important;
+	}
+</style>
+<div class="ada-widget-variant ada-widget-variant--one ">
+    <f:link.external class="ada-widget-btn style1"
+        uri="https://{f:if(condition: '{settings.web_aioapp}', then: 'web', else: 'api')}.aioapp.com/send/?phone={settings.aioapp_number}&text={settings.pre_filled_message}{f:if(condition: '{settings.web_aioapp}', then: '',  else: '&app_absent=0')}" target="_blank">{aioapp.text}</f:link.external>
+</div>

@@ -1,0 +1,56 @@
+plugin {
+  tx_typo3alloneaccessibility_tool {
+    view {
+      templateRootPaths.0 = EXT:alloneaccessibility/Resources/Private/Templates/
+      //templateRootPaths.1 = {$plugin.tx_typo3alloneaccessibility_tool.view.templateRootPath}
+      partialRootPaths.0 = EXT:alloneaccessibility/Resources/Private/Partials/
+      //partialRootPaths.1 = {$plugin.tx_typo3alloneaccessibility_tool.view.partialRootPath}
+      layoutRootPaths.0 = EXT:alloneaccessibility/Resources/Private/Layouts/
+      //layoutRootPaths.1 = {$plugin.tx_typo3alloneaccessibility_tool.view.layoutRootPath}
+    }
+
+    features {
+      #skipDefaultArguments = 1
+      # if set to 1, the enable fields are ignored in BE context
+      ignoreAllEnableFieldsInBe = 0
+      # Should be on by default, but can be disabled if all action in the plugin are uncached
+      requireCHashArgumentForActionArguments = 1
+    }
+    mvc {
+      #callDefaultActionIfActionCantBeResolved = 1
+    }
+  }
+}
+
+# Module configuration
+module.tx_allinoneaccessibilitymonitor_Sntg_allinoneaccessibilitymonitortoolmodule {
+  view {
+    templateRootPaths.0 = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Templates/
+    partialRootPaths.0 = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Partials/
+    layoutRootPaths.0 = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Layouts/
+  }
+}
+
+page {
+  // Initiate all the css-together
+  includeCSS {
+    30001 =  EXT:allinoneaccessibilitymonitor/Resources/Public/Css/adawidget.css
+  }
+
+}
+page.111246 >
+page.111246 = USER
+page.111246 {
+  userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+  pluginName = Tool
+  extensionName = Allinoneaccessibilitymonitor
+  controller = Tool
+  vendorName = Skynettechnologies
+  action = main
+  switchableControllerActions{
+    Tool {
+      1 = main
+    }
+  }
+  settings < plugin.tx_typo3alloneaccessibility_tool.settings
+}
