@@ -22,16 +22,6 @@ Monitor your website through ongoing automated accessibility scans to ensure you
 
     Whether you want to check in each week or month or quarter – set up intervals to match the activity level of each website.
 
-## Select any plan from following:
-
-* 100 Pages = $899 / Year
-
-* 250 Pages = $2199 / Year
-
-* 500 Pages = $4299 / Year
-
-* 1500 Pages = $12299 / Year
-
 ## Installation
 
 To install the plugin, follow these instructions.
