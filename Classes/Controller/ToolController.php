@@ -1,17 +1,17 @@
 <?php
-namespace Skynettechnologies\Allinoneaccessibilitymonitor\Controller;
+namespace Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Controller;
 
-use Skynettechnologies\Allinoneaccessibilitymonitor\AdaConstantModule\TypoScriptTemplateConstantEditorModuleFunctionController;
-use Skynettechnologies\Allinoneaccessibilitymonitor\Property\TypeConverter\UploadedFileReferenceConverter;
+use Skynettechnologies\Typo3Allinoneaccessibilitymonitor\AdaConstantModule\TypoScriptTemplateConstantEditorModuleFunctionController;
+use Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Property\TypeConverter\UploadedFileReferenceConverter;
+use TYPO3\CMS\Core\TypoScript\ExtendedTemplateService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Annotation\Inject as inject;
 use TYPO3\CMS\Extbase\Property\PropertyMappingConfiguration;
 use TYPO3\CMS\Tstemplate\Controller\TypoScriptTemplateModuleController;
-use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Core\Environment;
-
 /***
  *
- * This file is part of the "All in One AccessibilityMonitor" Extension for TYPO3 CMS.
+ * This file is part of the "All in One Accessibility Monitor" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -26,17 +26,22 @@ use TYPO3\CMS\Core\Core\Environment;
 class ToolController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
-     * toolstyleRepository
+     * ToolRepository
      *
-     * @var \Skynettechnologies\Allinoneaccessibilitymonitor\Domain\Repository\ToolRepository
+     * @var \Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Domain\Repository\ToolRepository
+     * @inject
      */
-    protected $toolstyleRepository = null;
+    protected $ToolRepository = null;
 
-    public function __construct(
-        \Skynettechnologies\Allinoneaccessibilitymonitor\Domain\Repository\ToolstyleRepository $toolstyleRepository
-    ) {
+    /**
+     * @param \Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Domain\Repository\ToolstyleRepository $ToolstyleRepository
+     */
+    public function injectToolstyleRepository(\Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Domain\Repository\ToolstyleRepository $toolstyleRepository)
+    {
         $this->toolstyleRepository = $toolstyleRepository;
     }
+
+    protected $templateService;
 
     protected $constantObj;
 
@@ -59,6 +64,7 @@ class ToolController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     public function initializeObject()
     {
         $this->contentObject = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
+        $this->templateService = GeneralUtility::makeInstance(ExtendedTemplateService::class);
         $this->constantObj = GeneralUtility::makeInstance(TypoScriptTemplateConstantEditorModuleFunctionController::class);
     }
 
@@ -88,17 +94,14 @@ class ToolController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     /**
      * action accessibilityMonitorSettingsAction
      *
-     * @return ResponseInterface
+     * @return void
      */
-    public function accessibilityMonitorSettingsAction(): ResponseInterface
+    public function accessibilityMonitorSettingsAction()
     {
-
-        $this->view->assign('action', 'accessibilityMonitorSettings');
+        $this->view->assign('action', 'widgetSet tings');
         $this->view->assign('constant', $this->constants);
-
         $host = GeneralUtility::locationHeaderUrl( '/' );
-       $domain = parse_url($host, PHP_URL_HOST);
-
+        $domain = parse_url($host, PHP_URL_HOST);
         $curl = curl_init();
 		curl_setopt_array($curl, array(
 		CURLOPT_URL => 'https://ada.skynettechnologies.us/api/check-scanner-website',
@@ -117,11 +120,14 @@ class ToolController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 		curl_close($curl);
 		$settingURLObject = json_decode($response);
 
+
         $this->view->assign('accscan_status', $settingURLObject->status);
         $this->view->assign('accscan_website_domain', $domain);
         $this->view->assign('settinglink', $settingURLObject->settinglink);
         $this->view->assign('manage_domain', $settingURLObject->manage_domain);
 
+
         return $this->htmlResponse();
     }
+
 }

@@ -1,36 +1,40 @@
 <?php
-defined('TYPO3') || die('Access denied.');
+defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(
     function () {
-
+        if (version_compare(TYPO3_branch, '10.0', '>=')) {
+            $moduleClass = \Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Controller\ToolController::class;
+        } else {
+            $moduleClass = 'Tool';
+        }
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-            'Allinoneaccessibilitymonitor',
+            'Skynettechnologies.Typo3Allinoneaccessibilitymonitor',
             'Tool',
             [
-                \Skynettechnologies\Allinoneaccessibilitymonitor\Controller\ToolController::class => 'main',
+                $moduleClass => 'list, update, create',
             ],
             // non-cacheable actions
             [
-                \Skynettechnologies\Allinoneaccessibilitymonitor\Controller\ToolController::class => 'main',
+                $moduleClass => 'update, create',
             ]
         );
 
         $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 
         $iconRegistry->registerIcon(
-            'scanner-plugin-tool',
+            'typo3_allinoneaccessibilitymonitor-plugin-tool',
             \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-            ['source' => 'EXT:allinoneaccessibilitymonitor/Resources/Public/Icons/user_plugin_aioapp.svg']
+            ['source' => 'EXT:typo3_allinoneaccessibilitymonitor/Resources/Public/Icons/user_plugin_aioapp.svg']
         );
 
         $iconRegistry->registerIcon(
-            'module-Allinoneaccessibilitymonitor',
+            'module-typo3allinoneaccessibilitymonitor',
             \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-            ['source' => 'EXT:allinoneaccessibilitymonitor/Resources/Public/Icons/module-sntg.svg']
+            ['source' => 'EXT:typo3_allinoneaccessibilitymonitor/Resources/Public/Icons/module-sntg.svg']
         );
-
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceContentSecurityPolicy'] = false;
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.enforceContentSecurityPolicy'] = false;
     }
 );
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerTypeConverter('Skynettechnologies\\Typo3Allinoneaccessibilitymonitor\\Property\\TypeConverter\\UploadedFileReferenceConverter');
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerTypeConverter('Skynettechnologies\\Typo3Allinoneaccessibilitymonitor\\Property\\TypeConverter\\ObjectStorageConverter');

@@ -1,12 +1,9 @@
 plugin {
-  tx_typo3alloneaccessibility_tool {
+  tx_typo3scanningaccessibility_tool {
     view {
-      templateRootPaths.0 = EXT:alloneaccessibility/Resources/Private/Templates/
-      //templateRootPaths.1 = {$plugin.tx_typo3alloneaccessibility_tool.view.templateRootPath}
-      partialRootPaths.0 = EXT:alloneaccessibility/Resources/Private/Partials/
-      //partialRootPaths.1 = {$plugin.tx_typo3alloneaccessibility_tool.view.partialRootPath}
-      layoutRootPaths.0 = EXT:alloneaccessibility/Resources/Private/Layouts/
-      //layoutRootPaths.1 = {$plugin.tx_typo3alloneaccessibility_tool.view.layoutRootPath}
+      templateRootPaths.0 = EXT:typo3_accessibilitymonitor/Resources/Private/Templates/
+      partialRootPaths.0 = EXT:typo3_accessibilitymonitor/Resources/Private/Partials/
+      layoutRootPaths.0 = EXT:typo3_accessibilitymonitor/Resources/Private/Layouts/
     }
 
     features {
@@ -23,19 +20,21 @@ plugin {
 }
 
 # Module configuration
-module.tx_allinoneaccessibilitymonitor_Sntg_allinoneaccessibilitymonitortoolmodule {
+module.tx_typo3allinoneaccessibilitymonitor_skynettechnologies_typo3allinoneaccessibilitymonitortoolmodule {
   view {
-    templateRootPaths.0 = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Templates/
-    partialRootPaths.0 = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Partials/
-    layoutRootPaths.0 = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Layouts/
+    templateRootPaths.0 = EXT:typo3_allinoneaccessibilitymonitor/Resources/Private/Backend/Templates/
+    partialRootPaths.0 = EXT:typo3_allinoneaccessibilitymonitor/Resources/Private/Backend/Partials/
+    layoutRootPaths.0 = EXT:typo3_allinoneaccessibilitymonitor/Resources/Private/Backend/Layouts/
   }
 }
+
 
 page {
   // Initiate all the css-together
   includeCSS {
-    30001 =  EXT:allinoneaccessibilitymonitor/Resources/Public/Css/adawidget.css
+    30001 = typo3conf/ext/typo3_allinoneaccessibilitymonitor/Resources/Public/Css/adawidget.css
   }
+
 
 }
 page.111246 >
@@ -43,14 +42,14 @@ page.111246 = USER
 page.111246 {
   userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
   pluginName = Tool
-  extensionName = Allinoneaccessibilitymonitor
+  extensionName = Typo3Allinoneaccessibilitymonitor
   controller = Tool
   vendorName = Skynettechnologies
-  action = main
+  action = list
   switchableControllerActions{
     Tool {
-      1 = main
+      1 = list
     }
   }
-  settings < plugin.tx_typo3alloneaccessibility_tool.settings
+  settings < plugin.tx_typo3scanningaccessibility_Tool.settings
 }

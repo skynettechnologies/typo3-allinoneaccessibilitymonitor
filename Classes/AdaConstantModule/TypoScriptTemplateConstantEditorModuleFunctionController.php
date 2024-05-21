@@ -1,5 +1,5 @@
 <?php
-namespace Skynettechnologies\Allinoneaccessibilitymonitor\AdaConstantModule;
+namespace Skynettechnologies\Typo3Allinoneaccessibilitymonitor\AdaConstantModule;
 
 /*
  * This file is part of the TYPO3 CMS project.
@@ -148,10 +148,28 @@ class TypoScriptTemplateConstantEditorModuleFunctionController
                     $this->initializeEditor($this->id, $template_uid);
                 }
             }
+            if (version_compare(TYPO3_branch, '11', '>=')) {
+                if (empty($this->pObj)) {
+                    $iconFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconFactory::class);
+                    $pageRenderer = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+                    $uriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
+                    $moduleTemplateFactory = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Template\ModuleTemplateFactory::class);
+                    $this->pObj = new \TYPO3\CMS\Tstemplate\Controller\TypoScriptTemplateModuleController($iconFactory,$pageRenderer,$uriBuilder,$moduleTemplateFactory);
+                }
+            } else {
+                if (empty($this->pObj)) {
+                    $this->pObj = new \TYPO3\CMS\Tstemplate\Controller\TypoScriptTemplateModuleController;
+                }
+            }
+            $this->pObj->MOD_SETTINGS = BackendUtility::getModuleData($this->pObj->MOD_MENU, GeneralUtility::_GP('SET'), 'web_ts');
+            // Resetting the menu (stop)
+            if (!empty($this->pObj->MOD_MENU['constant_editor_cat'])) {
+                $assigns['constantsMenu'] = BackendUtility::getDropdownMenu($this->id, 'SET[constant_editor_cat]', $this->pObj->MOD_SETTINGS['constant_editor_cat'], $this->pObj->MOD_MENU['constant_editor_cat']);
+            }
 
             $category = strtolower((string)GeneralUtility::_GP('cat'));
             if ($category == '') {
-                $category = 'scanner_chat';
+                $category = 'typo3_allinoneaccessibilitymonitor_widget';
             }
             // Category and constant editor config:
             $printFields = trim($this->templateService->ext_printFields($this->constants, $category));
@@ -167,14 +185,16 @@ class TypoScriptTemplateConstantEditorModuleFunctionController
                     'id' => $id,
                     'template' => 'all',
                 ];
-
-                $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
-                $aHref = (string) $uriBuilder->buildUriFromRoute('web_ts', $urlParameters);
-
+                if (version_compare(TYPO3_branch, '10', '>=')) {
+                    $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
+                    $aHref = (string) $uriBuilder->buildUriFromRoute('web_ts', $urlParameters);
+                } else {
+                    $aHref = (string) BackendUtility::getModuleUrl('web_ts', $urlParameters);
+                }
                 $view->assign('link', $aHref);
             }
             $view->setTemplatePathAndFilename(GeneralUtility::getFileAbsFileName(
-                'EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Templates/NoConstant.html'
+                'EXT:typo3_allinoneaccessibilitymonitor/Resources/Private/Backend/Templates/NoConstant.html'
             ));
             $theOutput = $view->render();
         }

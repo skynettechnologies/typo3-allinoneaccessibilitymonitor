@@ -3,25 +3,20 @@
     "type": "typo3-cms-extension",
     "description": "All in One Accessibility Monitor tool scan your website quickly for accessibility issues on complex websites with thousands of pages.It allows you to identify real-time digital accessibility issues in websites,applications, and documents.It offers continuous monitoring capabilities to track accessibility compliance over time.",
     "require": {
-        "typo3/cms-core": "^12"
+        "typo3/cms-core": "^8.0  || ^9.0 || ^10.0  || ^11.0"
     },
     "autoload": {
         "psr-4": {
-            "Skynettechnologies\\Allinoneaccessibilitymonitor\\": "Classes"
+            "Skynettechnologies\\Typo3Allinoneaccessibilitymonitor\\": "Classes"
         }
     },
     "replace": {
-        "typo3-ter/allinoneaccessibilitymonitor": "self.version"
-    },
-    "config": {
-        "vendor-dir": ".Build/vendor/",
-        "bin-dir": ".Build/bin/"
+        "typo3-ter/typo3-allinoneaccessibilitymonitor": "*"
     },
     "extra": {
         "typo3/cms": {
-            "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "web-dir": ".Build/public",
-            "extension-key": "allinoneaccessibilitymonitor"
+            "extension-key": "typo3_allinoneaccessibilitymonitor"
         }
     }
 }
+

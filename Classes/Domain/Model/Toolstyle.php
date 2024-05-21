@@ -1,9 +1,9 @@
 <?php
-namespace Skynettechnologies\Allinoneaccessibilitymonitor\Domain\Model;
+namespace Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Domain\Model;
 
 /***
  *
- * This file is part of the "Allinoneaccessibilitymonitor" Extension for TYPO3 CMS.
+ * This file is part of the "Typo3Allinoneaccessibilitymonitor" Extension for TYPO3 CMS.
  *
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
@@ -12,12 +12,12 @@ namespace Skynettechnologies\Allinoneaccessibilitymonitor\Domain\Model;
  *
  ***/
 /**
- * Toolstyle
+ * aioappstyle
  */
 
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+class aioappstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
     /**
      * Image
@@ -153,7 +153,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $heading
      */
-    public function getHeading(): string
+    public function getHeading()
     {
         return $this->heading;
     }
@@ -174,7 +174,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $text
      */
-    public function getText(): string
+    public function getText()
     {
         return $this->text;
     }
@@ -195,7 +195,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $upload
      */
-    public function getUpload(): string
+    public function getUpload()
     {
         return $this->upload;
     }
@@ -216,7 +216,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $textcolor
      */
-    public function getTextcolor(): string
+    public function getTextcolor()
     {
         return $this->textcolor;
     }
@@ -237,7 +237,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $bgcolor
      */
-    public function getBgcolor(): string
+    public function getBgcolor()
     {
         return $this->bgcolor;
     }
@@ -258,7 +258,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $height
      */
-    public function getHeight(): string
+    public function getHeight()
     {
         return $this->height;
     }
@@ -279,7 +279,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $border
      */
-    public function getBorder(): string
+    public function getBorder()
     {
         return $this->border;
     }
@@ -300,7 +300,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $size
      */
-    public function getSize(): string
+    public function getSize()
     {
         return $this->size;
     }
@@ -321,7 +321,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $font
      */
-    public function getFont(): string
+    public function getFont()
     {
         return $this->font;
     }
@@ -358,7 +358,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $animation
      */
-    public function getAnimation(): string
+    public function getAnimation()
     {
         return $this->animation;
     }
@@ -379,7 +379,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $imageposition
      */
-    public function getImageposition(): string
+    public function getImageposition()
     {
         return $this->imageposition;
     }
@@ -400,7 +400,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $style
      */
-    public function getStyle(): string
+    public function getStyle()
     {
         return $this->style;
     }
@@ -421,7 +421,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $bordercolor
      */
-    public function getBordercolor(): string
+    public function getBordercolor()
     {
         return $this->bordercolor;
     }
@@ -441,7 +441,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $htextcolor
      */
-    public function getHtextcolor(): string
+    public function getHtextcolor()
     {
         return $this->htextcolor;
     }
@@ -462,7 +462,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $hbgcolor
      */
-    public function getHbgcolor(): string
+    public function getHbgcolor()
     {
         return $this->hbgcolor;
     }
@@ -483,7 +483,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $hboredrcolor
      */
-    public function getHboredrcolor(): string
+    public function getHboredrcolor()
     {
         return $this->hboredrcolor;
     }
@@ -504,7 +504,7 @@ class Toolstyle extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @return string $imageurl
      */
-    public function getImageurl(): string
+    public function getImageurl()
     {
         return $this->imageurl;
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2020-05-26T10:52:13Z" product-name="allinoneaccessibilitymonitor">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-05-26T10:52:13Z" product-name="typo3_allinoneaccessibilitymonitor">
 		<header/>
 		<body>
 
             <trans-unit id="brandname">
-				<source>All in One AccessibilityMonitor</source>
+				<source>All in One Accessibility Monitor</source>
 			</trans-unit>
             <trans-unit id="documentaiton">
                 <source>Documentaiton</source>
@@ -41,7 +41,7 @@
                 <source>Template</source>
             </trans-unit>
             <trans-unit id="save_changes">
-                <source>Save</source>
+                <source>Save Changes</source>
             </trans-unit>
             <trans-unit id="opps">
                 <source>Oops!</source>
@@ -61,8 +61,8 @@
             <trans-unit id="templatelinkText">
                 <source>Template</source>
             </trans-unit>
-			<trans-unit id="accessibilityMonitorSettings">
-				<source>Chat</source>
+			<trans-unit id="ttings">
+				<source>Widget</source>
 			</trans-unit>
             <trans-unit id="shareSettings">
                 <source>Share</source>
@@ -73,8 +73,8 @@
             <trans-unit id="styleSettings">
                 <source>Style</source>
             </trans-unit>
-            <trans-unit id="cat_chat">
-                <source>Chat </source>
+            <trans-unit id="cat_widget">
+                <source>Widget </source>
             </trans-unit>
             <trans-unit id="cat_style">
                 <source>Style Settings</source>

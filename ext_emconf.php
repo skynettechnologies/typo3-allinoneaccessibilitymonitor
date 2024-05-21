@@ -1,8 +1,7 @@
 <?php
 
-$EM_CONF['allinoneaccessibilitymonitor'] = [
-    'title' => 'All in One Accessibility Monitor',
-    'description' => 'All in One Accessibility Monitor tool scan your website quickly for accessibility issues on complex websites with thousands of pages.It allows you to identify real-time digital accessibility issues in websites,applications, and documents.It offers continuous monitoring capabilities to track accessibility compliance over time.',
+$EM_CONF['typo3_allinoneaccessibilitymonitor'] = [
+    'title' => 'All in One Accessibility Monitor.',
     'category' => 'plugin',
     'author' => 'Skynet Technologies USA LLC',
     'author_email' => 'hello@skynetindia.info',
@@ -10,10 +9,11 @@ $EM_CONF['allinoneaccessibilitymonitor'] = [
     'state' => 'stable',
     'uploadfolder' => 0,
     'createDirs' => '',
-    'version' => '1.0.2',
+    'clearCacheOnLoad' => 0,
+    'version' => '1.0.1',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.0.0-12.4.99',
+            'typo3' => '8.7.0-11.5.99',
         ],
         'conflicts' => [],
         'suggests' => [],

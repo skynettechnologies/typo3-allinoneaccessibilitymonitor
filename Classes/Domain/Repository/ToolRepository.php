@@ -1,5 +1,5 @@
 <?php
-namespace Skynettechnologies\Allinoneaccessibilitymonitor\Domain\Repository;
+namespace Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Domain\Repository;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -20,8 +20,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class ToolRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     /**
-     * @param array $pid
-     * @return array
+     * Find Constants via sys_template Database Table
+     *
+     * @return array|NULL  Result is array('constants' => queryResult) or NULL
      */
     public function fetchConstants($pid)
     {

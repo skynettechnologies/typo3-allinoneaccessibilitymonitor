@@ -1,13 +1,14 @@
 define([
     'jquery',
     'TYPO3/CMS/Backend/Modal',
-    'TYPO3/CMS/Allinoneaccessibilitymonitor/Main',
-    'TYPO3/CMS/Allinoneaccessibilitymonitor/Datatables',
+    'TYPO3/CMS/Typo3Allinoneaccessibilitymonitor/Main',
+    'TYPO3/CMS/Typo3Allinoneaccessibilitymonitor/Datatables',
+    'TYPO3/CMS/Backend/jquery.clearable'
 ], function ($, Model) {
     $(document).on("click", ".save", function () {
         $('.flashmessage').html("<p class='alert alert-success'>Your changes has been saved successfully</p>");
     });
-    $(document).on("click", ".image-upload", function () {
+   $(document).on("click", ".image-upload", function () {
         $('.upload').prop("checked", true);
     });
     $(document).on("click", ".add-url", function () {
@@ -32,23 +33,6 @@ define([
                 window.location.reload();
             }
         })
-    });
-    $('#TypoScriptTemplateModuleController').on('submit',function(e){
-        require(['TYPO3/CMS/Backend/Notification'], function(Notification) {
-            Notification.success('Well done', 'Your configuration is updated successfully.');
-        });
-    });
-    $('.custom-reset').on('click', function(){
-        var that = $(this);
-        that.find('i').addClass('fa-spin');
-        var id = that.attr('data-id');
-        var defaultValue = $("#" + id).attr('data-value');
-        $("#" + id).val(defaultValue);
-        $("#" + id).addClass('form__field');
-        setTimeout(function(){
-            $("#" + id).removeClass('form__field');
-            that.find('i').removeClass('fa-spin');
-        }, 2000);
     });
   var json = $.getJSON('https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyBwIX97bVWr3-6AIUvGkcNnmFgirefZ6Sw', function(data) {
     $.each( data.items, function( index, font ) {

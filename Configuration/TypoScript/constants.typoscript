@@ -1,20 +1,16 @@
-plugin.tx_typo3alloneaccessibility_tool {
+plugin.tx_typo3scanningaccessibility_tool {
   view {
-    # cat=plugin.tx_typo3alloneaccessibility_tool/file; type=string; label=Path to template root (FE)
-    templateRootPath = EXT:alloneaccessibility/Resources/Private/Templates/
-    # cat=plugin.tx_typo3alloneaccessibility_tool/file; type=string; label=Path to template partials (FE)
-    partialRootPath = EXT:alloneaccessibility/Resources/Private/Partials/
-    # cat=plugin.tx_typo3alloneaccessibility_tool/file; type=string; label=Path to template layouts (FE)
-    layoutRootPath = EXT:talloneaccessibility/Resources/Private/Layouts/
+    templateRootPath = EXT:typo3_accessibilitymonitor/Resources/Private/Templates/
+    partialRootPath = EXT:typo3_accessibilitymonitor/Resources/Private/Partials/
+    layoutRootPath = EXT:typo3_accessibilitymonitor/Resources/Private/Layouts/
   }
-
 }
 
-module.tx_allinoneaccessibilitymonitor_Sntg_allinoneaccessibilitymonitortoolmodule {
+module.tx_typo3scanningaccessibility_toolmodule {
   view {
-    templateRootPath = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Templates/
-    partialRootPath = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Partials/
-    layoutRootPath = EXT:allinoneaccessibilitymonitor/Resources/Private/Backend/Layouts/
+    templateRootPath = EXT:typo3_accessibilitymonitor/Resources/Private/Backend/Templates/
+    partialRootPath = EXT:typo3_accessibilitymonitor/Resources/Private/Backend/Partials/
+    layoutRootPath = EXT:typo3_accessibilitymonitor/Resources/Private/Backend/Layouts/
   }
 
 }

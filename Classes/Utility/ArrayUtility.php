@@ -1,5 +1,5 @@
 <?php
-namespace Skynettechnologies\Allinoneaccessibilitymonitor\Utility;
+namespace Skynettechnologies\Typo3Allinoneaccessibilitymonitor\Utility;
 
 /**
  * Class containing more array helper functions.

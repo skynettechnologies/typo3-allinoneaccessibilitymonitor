@@ -188,14 +188,7 @@ hr{
     width: auto;
     margin-top: 20px;
 }
-/*.custom-form-inline input[type='radio'] + .form-control {
-    pointer-events: none;
-    cursor: not-allowed !important;
-}
-.custom-form-inline input[type='radio']:checked + .form-control {
-    pointer-events: auto;
-    cursor: initial !important;
-}*/
+
 .ada-widget-variant--three .ada-widget-custom-img img {
     max-width: 100%;
     height: 100px;
